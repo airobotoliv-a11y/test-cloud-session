@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navos Mallar Runda 3</title>
+<style>
+  :root { --bg:#EFEFEC; --ink:#17181A; --muted:#63656B; --line:#D9D9D4; --card:#FFFFFF; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:'Avenir Next', 'Segoe UI', Helvetica, Arial, sans-serif; }
+  header { max-width:1500px; margin:0 auto; padding:40px 24px 4px; }
+  h1 { margin:0; font-size:30px; letter-spacing:-0.02em; }
+  header p { margin:8px 0 0; color:var(--muted); max-width:68ch; line-height:1.55; }
+  main { max-width:1500px; margin:0 auto; padding:24px; display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:32px 24px; }
+  article { display:flex; flex-direction:column; gap:10px; }
+  .thumb { display:block; position:relative; height:520px; border-radius:12px; overflow:hidden; background:var(--card); border:1px solid var(--line); transition:transform .15s ease, box-shadow .15s ease; }
+  .thumb:hover, .thumb:focus-visible { transform:translateY(-3px); box-shadow:0 14px 30px -18px rgba(0,0,0,.4); outline:none; }
+  .thumb:focus-visible { box-shadow:0 0 0 3px var(--ink); }
+  .thumb iframe { position:absolute; top:0; left:0; width:760px; height:1300px; border:0; transform:scale(.42); transform-origin:0 0; pointer-events:none; }
+  .meta { display:flex; gap:12px; align-items:baseline; }
+  .nr { font-size:22px; font-weight:700; font-variant-numeric:tabular-nums; color:var(--muted); }
+  h2 { margin:0; font-size:17px; }
+  .bolag { margin:1px 0 0; font-size:12.5px; color:var(--muted); }
+  .ide { margin:0; font-size:13.5px; line-height:1.5; color:var(--muted); }
+  @media (min-width:700px) { .thumb iframe { transform:scale(.45); } }
+  @media (prefers-reduced-motion: reduce) { .thumb { transition:none; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Navos mejlmallar, runda 3</h1>
+  <p>Tjugo nya mallar i samma stil som Vinetiketten, Tvättlappen och Skivan: ljust kort, en egen detalj per mall och produktkort som talar produktens språk. Klicka på en mall för att öppna den i full storlek.</p>
+</header>
+<main>
+  <article>
+    <a class="thumb" href="01-fropasen.html" target="_blank" aria-label="Öppna Fröpåsen">
+      <iframe src="01-fropasen.html" title="Fröpåsen" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">01</span><div><h2>Fröpåsen</h2><p class="bolag">Fröhandeln Lind</p></div></div>
+    <p class="ide">Produktkorten är fröpåsar med en såkalender månad för månad.</p>
+  </article>
+  <article>
+    <a class="thumb" href="02-kompassen.html" target="_blank" aria-label="Öppna Kompassen">
+      <iframe src="02-kompassen.html" title="Kompassen" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">02</span><div><h2>Kompassen</h2><p class="bolag">Fjällboden</p></div></div>
+    <p class="ide">En kompassros i CSS. Produktkorten visar komforttemperatur som ett spann på en termometer.</p>
+  </article>
+  <article>
+    <a class="thumb" href="03-notbladet.html" target="_blank" aria-label="Öppna Notbladet">
+      <iframe src="03-notbladet.html" title="Notbladet" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">03</span><div><h2>Notbladet</h2><p class="bolag">Musikhuset Ton</p></div></div>
+    <p class="ide">Ett notsystem med G-klav som huvud. Fakta visas som stämton, luftfuktighet och nästa lediga tid.</p>
+  </article>
+  <article>
+    <a class="thumb" href="04-dosetten.html" target="_blank" aria-label="Öppna Dosetten">
+      <iframe src="04-dosetten.html" title="Dosetten" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">04</span><div><h2>Dosetten</h2><p class="bolag">Apoteket på hörnet</p></div></div>
+    <p class="ide">Doseringen visas som en veckodosett med fack för varje dag.</p>
+  </article>
+  <article>
+    <a class="thumb" href="05-ostbrickan.html" target="_blank" aria-label="Öppna Ostbrickan">
+      <iframe src="05-ostbrickan.html" title="Ostbrickan" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">05</span><div><h2>Ostbrickan</h2><p class="bolag">Ostboden</p></div></div>
+    <p class="ide">En osthjul med en utskuren bit. Produktkorten visar lagringstid som stapel och typ av mjölk.</p>
+  </article>
+  <article>
+    <a class="thumb" href="06-fasthetsskalan.html" target="_blank" aria-label="Öppna Fasthetsskalan">
+      <iframe src="06-fasthetsskalan.html" title="Fasthetsskalan" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">06</span><div><h2>Fasthetsskalan</h2><p class="bolag">Sömnbutiken</p></div></div>
+    <p class="ide">Madrasserna placeras på en fasthetsskala från mjuk till fast, med kundens nuvarande som jämförelse.</p>
+  </article>
+  <article>
+    <a class="thumb" href="07-vallaskalan.html" target="_blank" aria-label="Öppna Vallaskalan">
+      <iframe src="07-vallaskalan.html" title="Vallaskalan" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">07</span><div><h2>Vallaskalan</h2><p class="bolag">Skidspecialisten</p></div></div>
+    <p class="ide">Vallaskalan från violett till gul med den rekommenderade vallan markerad, och prognosen för loppet.</p>
+  </article>
+  <article>
+    <a class="thumb" href="08-kryddhyllan.html" target="_blank" aria-label="Öppna Kryddhyllan">
+      <iframe src="08-kryddhyllan.html" title="Kryddhyllan" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">08</span><div><h2>Kryddhyllan</h2><p class="bolag">Kryddhuset</p></div></div>
+    <p class="ide">Produktkorten är kryddburkar med lock, och styrkan visas som chilifrukter.</p>
+  </article>
+  <article>
+    <a class="thumb" href="09-flotet.html" target="_blank" aria-label="Öppna Flötet">
+      <iframe src="09-flotet.html" title="Flötet" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">09</span><div><h2>Flötet</h2><p class="bolag">Fiskehörnan</p></div></div>
+    <p class="ide">Ett flöte i CSS och riggen som en lista med lina, tafs, krok och djup.</p>
+  </article>
+  <article>
+    <a class="thumb" href="10-kakaohalten.html" target="_blank" aria-label="Öppna Kakaohalten">
+      <iframe src="10-kakaohalten.html" title="Kakaohalten" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">10</span><div><h2>Kakaohalten</h2><p class="bolag">Chokladfabriken</p></div></div>
+    <p class="ide">Kakaohalten visas som en chokladkaka med tio rutor, där antalet fyllda rutor motsvarar procenten.</p>
+  </article>
+  <article>
+    <a class="thumb" href="11-buketten.html" target="_blank" aria-label="Öppna Buketten">
+      <iframe src="11-buketten.html" title="Buketten" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">11</span><div><h2>Buketten</h2><p class="bolag">Blomsterhandeln Flora</p></div></div>
+    <p class="ide">En bukett ritad med stjälkar och blomhuvuden. Produktkorten visar hur många dagar blommorna håller i vas.</p>
+  </article>
+  <article>
+    <a class="thumb" href="12-mattabellen.html" target="_blank" aria-label="Öppna Måttabellen">
+      <iframe src="12-mattabellen.html" title="Måttabellen" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">12</span><div><h2>Måttabellen</h2><p class="bolag">Skrädderi Hellström</p></div></div>
+    <p class="ide">Ett måttkort från skräddaren: standardmått mot kundens egna, med noteringar om vad som ändras.</p>
+  </article>
+  <article>
+    <a class="thumb" href="13-solfaktorn.html" target="_blank" aria-label="Öppna Solfaktorn">
+      <iframe src="13-solfaktorn.html" title="Solfaktorn" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">13</span><div><h2>Solfaktorn</h2><p class="bolag">Apotek Sol</p></div></div>
+    <p class="ide">En sol med faktor 50 och en rad med tider för när man smörjer om. Produktkorten har SPF-rutan och UVA-cirkeln från förpackningen.</p>
+  </article>
+  <article>
+    <a class="thumb" href="14-laddkabeln.html" target="_blank" aria-label="Öppna Laddkabeln">
+      <iframe src="14-laddkabeln.html" title="Laddkabeln" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">14</span><div><h2>Laddkabeln</h2><p class="bolag">Laddpunkten</p></div></div>
+    <p class="ide">En typ 2-kontakt i CSS. Produktkorten visar effekt som stapel och hur lång tid en full laddning tar.</p>
+  </article>
+  <article>
+    <a class="thumb" href="15-ryggsacken.html" target="_blank" aria-label="Öppna Ryggsäcken">
+      <iframe src="15-ryggsacken.html" title="Ryggsäcken" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">15</span><div><h2>Ryggsäcken</h2><p class="bolag">Uteliv</p></div></div>
+    <p class="ide">Tre ryggsäckar i olika storlek som silhuetter, med den rekommenderade i färg. Korten visar liter och rygglängd.</p>
+  </article>
+  <article>
+    <a class="thumb" href="16-olprovningen.html" target="_blank" aria-label="Öppna Ölprovningen">
+      <iframe src="16-olprovningen.html" title="Ölprovningen" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">16</span><div><h2>Ölprovningen</h2><p class="bolag">Bryggeriet Norrsken</p></div></div>
+    <p class="ide">Varje öl får ett litet glas i sin färg och två mätare, en för alkohol och en för beska.</p>
+  </article>
+  <article>
+    <a class="thumb" href="17-tapetrullen.html" target="_blank" aria-label="Öppna Tapetrullen">
+      <iframe src="17-tapetrullen.html" title="Tapetrullen" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">17</span><div><h2>Tapetrullen</h2><p class="bolag">Tapetmakarna</p></div></div>
+    <p class="ide">En tapetrulle med mönster i CSS och uträkningen av hur många rullar som behövs, steg för steg.</p>
+  </article>
+  <article>
+    <a class="thumb" href="18-barnvagnen.html" target="_blank" aria-label="Öppna Barnvagnen">
+      <iframe src="18-barnvagnen.html" title="Barnvagnen" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">18</span><div><h2>Barnvagnen</h2><p class="bolag">Barnrummet</p></div></div>
+    <p class="ide">Varje produkt visar på en tidslinje från 0 till 4 år under vilken period den faktiskt används.</p>
+  </article>
+  <article>
+    <a class="thumb" href="19-vattenhardheten.html" target="_blank" aria-label="Öppna Vattenhårdheten">
+      <iframe src="19-vattenhardheten.html" title="Vattenhårdheten" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">19</span><div><h2>Vattenhårdheten</h2><p class="bolag">Kaffemaskinservice</p></div></div>
+    <p class="ide">Skalan för vattenhårdhet i °dH med kundens kommun markerad, och avkalkningsintervallet som följer av den.</p>
+  </article>
+  <article>
+    <a class="thumb" href="20-synfaltet.html" target="_blank" aria-label="Öppna Synfältet">
+      <iframe src="20-synfaltet.html" title="Synfältet" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">20</span><div><h2>Synfältet</h2><p class="bolag">Jakt & Viltvård</p></div></div>
+    <p class="ide">Två synfältskoner visar skillnaden mellan 8× och 10×. Produktkorten har kikarens fyra nyckeltal.</p>
+  </article>
+</main>
+</body>
+</html>
