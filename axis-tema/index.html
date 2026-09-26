@@ -127,6 +127,13 @@
   .hint i::after { content: ""; position: absolute; left: 50%; top: 5px; width: 3px; height: 6px; margin-left: -1.5px; border-radius: 2px; background: #fff; animation: hjul 1.6s infinite; }
   @keyframes hjul { 0% { transform: translateY(0); opacity: 1; } 70% { transform: translateY(10px); opacity: 0; } 100% { opacity: 0; } }
   .hint.dold, .oppen-lage .hint { opacity: 0; }
+  .klipp { margin-top: 18px; border-top: 1px solid rgba(255,255,255,0.18); padding-top: 12px; font-size: 12.5px; color: rgba(255,255,255,0.75); }
+  .klipp summary { cursor: pointer; font-weight: 600; color: rgba(255,255,255,0.9); list-style: none; display: flex; align-items: center; gap: 8px; }
+  .klipp summary::before { content: ""; width: 6px; height: 6px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(-45deg); transition: transform 0.3s; }
+  .klipp[open] summary::before { transform: rotate(45deg); }
+  .klipp p { margin: 10px 0; line-height: 1.5; } .klipp .status { font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: rgba(255,255,255,0.6); word-break: break-all; }
+  .kopiera { pointer-events: auto; font: inherit; font-size: 12px; font-weight: 500; color: #fff; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.3); border-radius: 999px; padding: 5px 11px; cursor: pointer; backdrop-filter: blur(8px); }
+  .kopiera:hover { background: rgba(255,255,255,0.26); }
   .toast { position: fixed; left: calc(248px + 50%); bottom: 28px; transform: translate(-50%, 20px); padding: 10px 16px; border-radius: 999px; background: #fff; color: var(--ink); font-size: 13px; font-weight: 500; opacity: 0; transition: all 0.4s var(--ease); z-index: 20; pointer-events: none; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); }
   .toast.on { opacity: 1; transform: translate(-50%, 0); }
 
@@ -152,7 +159,7 @@
   </div>
 </aside>
 
-<div class="topp"><span>Tema · <b id="topp-namn">Analogt och hantverk</b></span><span><b id="topp-nr">1</b> / 3</span></div>
+<div class="topp"><span>Tema · <b id="topp-namn">Analogt och hantverk</b></span><span><button class="kopiera" id="kopiera">Kopiera klipplista</button> &nbsp; <b id="topp-nr">1</b> / 3</span></div>
 <main id="main"></main>
 <nav class="rals" id="rals" aria-label="Skärmar"></nav>
 <div class="hint" id="hint"><i></i>Skrolla för fler teman</div>
@@ -164,44 +171,44 @@
    flera kandidater provas i ordning) eller sätt `video` till en mp4-länk.
    `bild` är stillbild som visas tills klippet spelar, och som reserv.
    ===================================================================== */
-const SKARMAR = ['Analogt och hantverk', 'Ute och årstider', 'Stad, teknik och lyx'];
+const SKARMAR = ['Analogt och hantverk', 'Natur och årstider', 'Material och ljus'];
 const TEMAN = [
-  { id: 'kassett', namn: 'Kassett', desc: 'Bandhjul som snurrar. Musik, vinyl, retro.', pexels: [5081431, 3746056, 7594210, 4695034], bild: '1619983081563-430f63602796', accent: '#D9822B',
-    toner: [['Bärnsten', '#D9822B'], ['Kol', '#2A2A2E']], mallar: [{ namn: 'Bandhjul', bild: '1619983081563-430f63602796', form: 'fade' }, { namn: 'Studio', bild: '1598488035139-bdbb2231ce04', form: 'u' }],
+  { id: 'kassett', namn: 'Kassett', desc: 'Bandhjul som snurrar långsamt. Musik, vinyl, analogt.', pexels: [5081431, 3746056, 7594210, 4695034], bild: '1619983081563-430f63602796', accent: '#B8862B',
+    toner: [['Bärnsten', '#B8862B'], ['Kol', '#2A2A2E']], mallar: [{ namn: 'Skivor', bild: '1619983081563-430f63602796', form: 'fade' }, { namn: 'Studio', bild: '1598488035139-bdbb2231ce04', form: 'u' }],
     butik: 'Vinylbolaget', svar: 'Ditt ex av återutgåvan kom in i fredags. Jag har lagt undan den i ditt namn i en vecka.', prod: ['Kent, Isola (återutgåva)', '2 × LP · 180 g', '399 kr'] },
   { id: 'black', namn: 'Bläck', desc: 'Bläck som blommar i vatten. Papper, konst, det handgjorda.', pexels: [2611250, 3163534, 4763824, 6981411], bild: '1550684848-fac1c5b4e853', accent: '#1F3A5F',
     toner: [['Midnatt', '#1F3A5F'], ['Rost', '#8E1B1B']], mallar: [{ namn: 'Bläckmoln', bild: '1550684848-fac1c5b4e853', form: 'oval' }, { namn: 'Brevpapper', bild: '1455390582262-044cdead277a', form: 'kuvert' }],
     butik: 'Pappersateljén', svar: 'De trettio extra korten går att trycka nästa vecka. Bomullspappret finns kvar i samma parti.', prod: ['Inbjudningskort, bomull 300 g', '30 st · letterpress', '840 kr'] },
-  { id: 'kaffe', namn: 'Kaffe', desc: 'Vatten över nymalet kaffe. Rosteri, te, delikatess.', pexels: [2909914, 4820665, 6802897, 3616831], bild: '1495474472287-4d71bcdd2085', accent: '#7A4A2B',
+  { id: 'kaffe', namn: 'Kaffe', desc: 'Vatten över nymalet kaffe, ånga i motljus. Rosteri, te, delikatess.', pexels: [2909914, 4820665, 6802897, 3616831], bild: '1495474472287-4d71bcdd2085', accent: '#7A4A2B',
     toner: [['Rost', '#7A4A2B'], ['Grädde', '#B08D57']], mallar: [{ namn: 'Pour over', bild: '1495474472287-4d71bcdd2085', form: 'u' }, { namn: 'Bönor', bild: '1447933601403-0c6688de566e', form: 'fade' }],
     butik: 'Kafferosteriet', svar: 'Till espresso hemma skulle jag välja Brasilien Cerrado. Den är mjukast och tål din maskin.', prod: ['Brasilien Cerrado', 'Rostgrad 3 av 5 · 500 g', '159 kr'] },
-  { id: 'atelje', namn: 'Ateljé', desc: 'Händer som formar lera. Keramik, hantverk, inredning.', pexels: [4029925, 6694340, 5202367, 8104345], bild: '1565193566173-7a0ee3dbe261', accent: '#8C5A3C',
+  { id: 'keramik', namn: 'Keramik', desc: 'Händer som formar lera på drejskivan. Hantverk, inredning, porslin.', pexels: [4029925, 6694340, 5202367, 8104345], bild: '1565193566173-7a0ee3dbe261', accent: '#8C5A3C',
     toner: [['Terrakotta', '#8C5A3C'], ['Glasyr', '#2F5D46']], mallar: [{ namn: 'Drejskiva', bild: '1565193566173-7a0ee3dbe261', form: 'valv' }, { namn: 'Hylla', bild: '1493106641515-6b5631de4bb9', form: 'u' }],
     butik: 'Porslinshuset', svar: 'Två nya glas skickas i dag utan kostnad, i kartong med förstärkta fack. Inget behöver skickas tillbaka.', prod: ['Vinglas Rödvin 45 cl', '2 st', '0 kr'] },
 
-  { id: 'hav', namn: 'Hav', desc: 'Vågor rakt uppifrån. Båt, bad, resor.', pexels: [3130284, 1409899, 2169880, 1093662], bild: '1505142468610-359e7d316be0', accent: '#0F6E78',
+  { id: 'hav', namn: 'Hav', desc: 'Vågor rakt uppifrån som rullar in mot sand. Kust, båt, sommar.', pexels: [3130284, 1409899, 2169880, 1093662], bild: '1505142468610-359e7d316be0', accent: '#0F6E78',
     toner: [['Turkos', '#0F6E78'], ['Sand', '#B89B5E']], mallar: [{ namn: 'Uppifrån', bild: '1505142468610-359e7d316be0', form: 'vag' }, { namn: 'Strand', bild: '1507525428034-b723cf961d3e', form: 'bage' }],
     butik: 'Havsbris Kajak', svar: 'Vi har flyttat din bokning till lördag förmiddag. Vinden lägger sig till runt 3 m/s, så det blir ett fint pass.', prod: ['2 × tvåmanskajak', 'Lör 5 juli · 09:00', '1 180 kr'] },
-  { id: 'skog', namn: 'Skog', desc: 'Dimma mellan granarna. Jakt, friluft, natur.', pexels: [1448735, 2098989, 3571264, 5764364], bild: '1448375240586-882707db888b', accent: '#4F6B3A',
+  { id: 'skog', namn: 'Skog', desc: 'Dimma mellan granarna, sedd från ovan. Jakt, friluft, natur.', pexels: [1448735, 2098989, 3571264, 5764364], bild: '1448375240586-882707db888b', accent: '#4F6B3A',
     toner: [['Gran', '#4F6B3A'], ['Dimma', '#5F6E7A']], mallar: [{ namn: 'Dimma', bild: '1448375240586-882707db888b', form: 'skold' }, { namn: 'Sjö', bild: '1470071459604-3b5ec3a7fe05', form: 'fade' }],
     butik: 'Åson Jakt', svar: 'I tät skog och i gryningen vinner 8×42 över 10×42. Bredare synfält och ljusare bild när det skymmer.', prod: ['GPO Passion ED 8×42', 'Synfält 142 m · 760 g', '6 995 kr'] },
-  { id: 'botanik', namn: 'Botanik', desc: 'Vattendroppar på blad. Växter, trädgård, eko.', pexels: [3618421, 4054007, 5495894, 2611250], bild: '1466781783364-36c955e42a7f', accent: '#2F5D46',
+  { id: 'botanik', namn: 'Botanik', desc: 'Vattendroppar på blad i makro. Växter, trädgård, eko.', pexels: [3618421, 4054007, 5495894, 1851190], bild: '1466781783364-36c955e42a7f', accent: '#2F5D46',
     toner: [['Mossa', '#2F5D46'], ['Lera', '#9A5B2E']], mallar: [{ namn: 'Blad', bild: '1466781783364-36c955e42a7f', form: 'kullar' }, { namn: 'Växthus', bild: '1416879595882-3373a0480b5b', form: 'u' }],
     butik: 'Gröna Rummet', svar: 'Gula blad längst ner på en monstera betyder nästan alltid för mycket vatten. Låt jorden torka ett par centimeter.', prod: ['Kruka Terra med hål, Ø 24', '+ Planteringsjord Tropisk', '329 kr'] },
   { id: 'sno', namn: 'Snö', desc: 'Snö som faller mot mörk skog. Skidor, vinter, jul.', pexels: [857251, 3214449, 6624232, 1858244], bild: '1491002052546-bf38f186af56', accent: '#12304D',
-    toner: [['Is', '#12304D'], ['Röd stuga', '#C8102E']], mallar: [{ namn: 'Snöfall', bild: '1491002052546-bf38f186af56', form: 'kullar' }, { namn: 'Fjäll', bild: '1418985991508-e47386d96a71', form: 'fade' }],
+    toner: [['Is', '#12304D'], ['Falurött', '#8B2A2A']], mallar: [{ namn: 'Snöfall', bild: '1491002052546-bf38f186af56', form: 'kullar' }, { namn: 'Fjäll', bild: '1418985991508-e47386d96a71', form: 'fade' }],
     butik: 'Alpinhörnan', svar: 'Skidor och pjäxor står slipade och vallade i butiken vid Kabinbanan från kl 08:00 på ankomstdagen.', prod: ['Premiumpaket, 6 dagar', 'Hämtas 20 dec', '2 340 kr'] },
 
-  { id: 'neon', namn: 'Neon', desc: 'Regnvåt gata med neon. Teknik, gaming, streetwear.', pexels: [2882566, 5473749, 3129957, 2795405], bild: '1519608487953-e999c86e7455', accent: '#4F7DFF',
-    toner: [['Elektrisk', '#4F7DFF'], ['Magenta', '#D23C8C']], mallar: [{ namn: 'Skyltar', bild: '1519608487953-e999c86e7455', form: 'snett' }, { namn: 'Regn', bild: '1493246507139-91e8fad9978e', form: 'fade' }],
+  { id: 'arkitektur', namn: 'Arkitektur', desc: 'Betong, ljus och skuggor som vandrar. Inredning, design, teknik.', pexels: [3129957, 2795405, 3571264, 5309381], bild: '1486718448742-163732cd1544', accent: '#3A3F45',
+    toner: [['Grafit', '#3A3F45'], ['Sandsten', '#A28B6C']], mallar: [{ namn: 'Fasad', bild: '1486718448742-163732cd1544', form: 'snett' }, { namn: 'Trappa', bild: '1481277542470-605612bd2d61', form: 'fade' }],
     butik: 'Ljudbutiken', svar: 'Till pendling med mycket samtal skulle jag välja Aura Pro. Sex mikrofoner gör att de du pratar med hör dig tydligt.', prod: ['Aura Pro', 'Brusreducering · 30 h', '2 990 kr'] },
-  { id: 'verkstad', namn: 'Verkstad', desc: 'Gnistor i motljus. Verktyg, cykel, bildelar.', pexels: [4489761, 3209828, 5846627, 7821854], bild: '1504328345606-18bbc8c9d7d1', accent: '#D8632B',
-    toner: [['Gnista', '#D8632B'], ['Stål', '#3A3F45']], mallar: [{ namn: 'Gnistor', bild: '1504328345606-18bbc8c9d7d1', form: 'snett' }, { namn: 'Bänk', bild: '1416879595882-3373a0480b5b', form: 'u' }],
-    butik: 'Cykelkedjan', svar: 'Kassetten du tittade på passar din Crescent Elis, men byt kedjan samtidigt så slipper den slira.', prod: ['Shimano 105 kassett 11-34', 'Passar din cykel', '549 kr'] },
-  { id: 'textil', namn: 'Textil', desc: 'Tyg som rör sig i ljuset. Mode, garn, hemtextil.', pexels: [5589932, 7679447, 6069112, 4614165], bild: '1520903920243-00d872a2d1c9', accent: '#B5485D',
-    toner: [['Hallon', '#B5485D'], ['Linne', '#8A7A62']], mallar: [{ namn: 'Siden', bild: '1520903920243-00d872a2d1c9', form: 'vag' }, { namn: 'Ull', bild: '1489987707025-afc232f7ea0f', form: 'fade' }],
+  { id: 'lader', namn: 'Läder', desc: 'Händer som syr i läder, verktyg på bänken. Väskor, skor, hantverk.', pexels: [4489761, 3209828, 5846627, 7821854], bild: '1473188588951-666fce8e7c68', accent: '#6B4423',
+    toner: [['Konjak', '#6B4423'], ['Mörk ek', '#2E2418']], mallar: [{ namn: 'Sömmen', bild: '1473188588951-666fce8e7c68', form: 'snett' }, { namn: 'Bänken', bild: '1504328345606-18bbc8c9d7d1', form: 'u' }],
+    butik: 'Sadelmakeriet', svar: 'Remmen går att byta utan att skicka in väskan. Vi skickar en ny i samma läder, färgad för hand så att den matchar.', prod: ['Axelrem, vegetabiliskt garvat', '110 cm · konjak', '590 kr'] },
+  { id: 'textil', namn: 'Textil', desc: 'Tyg som rör sig långsamt i ljuset. Mode, garn, hemtextil.', pexels: [5589932, 7679447, 6069112, 4614165], bild: '1520903920243-00d872a2d1c9', accent: '#8A7A62',
+    toner: [['Linne', '#8A7A62'], ['Hallon', '#B5485D']], mallar: [{ namn: 'Siden', bild: '1520903920243-00d872a2d1c9', form: 'vag' }, { namn: 'Ull', bild: '1489987707025-afc232f7ea0f', form: 'fade' }],
     butik: 'Garnverket', svar: 'Jag hittade tre nystan i samma färgbad, 4411, som du har i din tröja. De är reserverade åt dig.', prod: ['Merino Fin, Hallon 214', 'Färgbad 4411 · 3 nystan', '3 × 79 kr'] },
-  { id: 'guld', namn: 'Guld', desc: 'Glitter i mörker. Smycken, klockor, parfym.', pexels: [3945313, 7565438, 5532774, 4448864], bild: '1515562141207-7a88fb7ce338', accent: '#A8864B',
+  { id: 'guld', namn: 'Guld', desc: 'Ett smycke som fångar ljuset i mörker. Smycken, klockor, parfym.', pexels: [3945313, 7565438, 5532774, 4448864], bild: '1515562141207-7a88fb7ce338', accent: '#A8864B',
     toner: [['Guld', '#A8864B'], ['Sammet', '#3A1F2B']], mallar: [{ namn: 'Monter', bild: '1515562141207-7a88fb7ce338', form: 'oval' }, { namn: 'Kedja', bild: '1573408301185-9146fe634ad0', form: 'bage' }],
     butik: 'Smyckeriet', svar: 'Halsbandet slås in som present och skickas direkt till din syster. Priset står bara på ditt kvitto.', prod: ['Halsband i återvunnet silver', '45 cm · gravyr ingår', '1 195 kr'] },
 ];
@@ -259,6 +266,11 @@ SKARMAR.forEach((rubrik, si) => {
         <p class="lbl">Prova i din egen inkorg</p>
         <div class="test"><input type="email" placeholder="namn@företag.se"><button class="btn" data-act="test">Skicka testmejl</button></div>
         <div class="actions"><button class="btn prim" data-act="valj">Använd för alla</button><button class="btn" data-act="stang">Stäng</button></div>
+        <details class="klipp"><summary>Byt klipp för det här temat</summary>
+          <p>Klistra in länken till ett Pexels-klipp, eller en direkt mp4-länk, och tryck Prova. Fältet laddar om direkt. När du är nöjd med alla, tryck "Kopiera klipplista" uppe till höger och skicka listan till mig.</p>
+          <div class="test"><input type="text" data-klipp placeholder="https://www.pexels.com/video/…-1234567/"><button class="btn" data-act="prova">Prova</button></div>
+          <p class="status" data-status>Nu: ${t.video ? t.video : 'Pexels ' + t.pexels.join(', ')}</p>
+        </details>
       </div>`;
     skarm.appendChild(f);
 
@@ -297,6 +309,18 @@ SKARMAR.forEach((rubrik, si) => {
       const inp = f.querySelector('input'); if (!inp.value || !inp.validity.valid) { inp.focus(); return; }
       toast(`Testmejl med ${t.namn} skickas till ${inp.value}`);
     });
+    f.querySelector('[data-act="prova"]').addEventListener('click', () => {
+      const inp = f.querySelector('[data-klipp]'), val = inp.value.trim(); if (!val) { inp.focus(); return; }
+      let kallor;
+      if (/\.mp4(\?|$)/i.test(val)) { t.video = val; t.pexels = []; kallor = [val]; }
+      else { const m = val.match(/(\d{5,9})/); if (!m) { toast('Hittade inget klipp-id i länken'); return; } t.video = null; t.pexels = [+m[1]]; kallor = VARIANTER.map(x => `https://videos.pexels.com/video-files/${m[1]}/${m[1]}-${x}.mp4`); }
+      let v = f.querySelector('video');
+      if (!v) { v = document.createElement('video'); v.muted = true; v.loop = true; v.playsInline = true; f.insertBefore(v, f.querySelector('.etikett')); f._video = v; }
+      v.classList.remove('ready'); img.classList.add('drift');
+      f.querySelector('[data-status]').textContent = 'Provar…';
+      laddaVideo(v, kallor, () => { v.classList.add('ready'); img.classList.remove('drift'); v.play().catch(() => {}); f.querySelector('[data-status]').textContent = 'Nu: ' + (t.video || 'Pexels ' + t.pexels[0]) + ' · fungerar'; },
+        () => { f.querySelector('[data-status]').textContent = 'Kunde inte ladda något klipp från den länken.'; });
+    });
     f.querySelector('[data-act="stang"]').addEventListener('click', () => { f.classList.remove('on'); skarm.classList.remove('oppen'); document.body.classList.remove('oppen-lage'); });
   });
   main.appendChild(skarm);
@@ -332,6 +356,10 @@ window.addEventListener('keydown', e => {
   if (e.key === 'Escape') { const s = skarmar[aktiv]; s.classList.remove('oppen'); s.querySelectorAll('.falt').forEach(f => f.classList.remove('on')); document.body.classList.remove('oppen-lage'); }
   if (e.key === 'ArrowDown' || e.key === 'PageDown') { e.preventDefault(); skarmar[Math.min(aktiv + 1, 2)].scrollIntoView({ behavior: 'smooth' }); }
   if (e.key === 'ArrowUp' || e.key === 'PageUp') { e.preventDefault(); skarmar[Math.max(aktiv - 1, 0)].scrollIntoView({ behavior: 'smooth' }); }
+});
+document.getElementById('kopiera').addEventListener('click', () => {
+  const lista = TEMAN.map(t => `${t.namn}: ${t.video || 'Pexels ' + t.pexels.join(', ')}`).join('\n');
+  (navigator.clipboard ? navigator.clipboard.writeText(lista) : Promise.reject()).then(() => toast('Klipplistan är kopierad'), () => { console.log(lista); toast('Kunde inte kopiera, listan ligger i konsolen'); });
 });
 let toastT;
 function toast(msg) { const el = document.getElementById('toast'); el.textContent = msg; el.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(() => el.classList.remove('on'), 2600); }
