@@ -91,32 +91,10 @@
   .ton.on { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.7); }
 
   .fv { border-radius: 12px; overflow: hidden; background: #FAFAF6; color: var(--ink); box-shadow: 0 24px 60px -24px rgba(0,0,0,0.8); margin-bottom: 22px; }
-  .fv .hero { position: relative; height: 150px; background: #C9C4B8; overflow: hidden; }
+  .fv .hero { position: relative; background: #FAFAF6; transition: opacity 0.25s; }
+  .fv .hero svg { display: block; width: 100%; height: auto; }
   .fv .hero img { width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.4s; }
-  .fv .hero .av { position: absolute; left: 50%; bottom: -16px; transform: translateX(-50%); width: 40px; height: 40px; border-radius: 50%; border: 3px solid #FAFAF6; display: grid; place-items: center; color: #fff; font-weight: 700; font-size: 16px; }
-  .fv .hero .av::after { content: ""; position: absolute; right: -2px; bottom: -2px; width: 11px; height: 11px; border-radius: 50%; background: var(--green); border: 2px solid #FAFAF6; }
-  .fv .hero.form-fade img { -webkit-mask-image: linear-gradient(180deg, #000 45%, transparent 100%); mask-image: linear-gradient(180deg, #000 45%, transparent 100%); }
-  .fv .hero.form-u img { clip-path: url(#cp-u); }
-  .fv .hero.form-bage img { clip-path: ellipse(70% 100% at 50% 0%); }
-  .fv .hero.form-valv img { clip-path: url(#cp-valv); }
-  .fv .hero.form-vag img { clip-path: url(#cp-vag); }
-  .fv .hero.form-skold img { clip-path: url(#cp-skold); }
-  .fv .hero.form-kuvert img { clip-path: url(#cp-kuvert); }
-  .fv .hero.form-oval img { -webkit-mask-image: radial-gradient(ellipse 62% 90% at 50% 40%, #000 55%, transparent 100%); mask-image: radial-gradient(ellipse 62% 90% at 50% 40%, #000 55%, transparent 100%); }
-  .fv .hero.form-snett img { clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%); }
-  .fv .hero.form-kullar img { clip-path: url(#cp-kullar); }
-  .fv .hero.form-djuput img { clip-path: url(#cp-djuput); }
-  .fv .hero.form-mjukut img { clip-path: url(#cp-mjukut); -webkit-mask-image: linear-gradient(180deg, #000 50%, transparent 100%); mask-image: linear-gradient(180deg, #000 50%, transparent 100%); }
-  .fv .hero.form-droppe img { clip-path: url(#cp-droppe); }
-  .fv .hero.form-horisont img { clip-path: url(#cp-horisont); }
-  .fv .hero.form-prislapp img { clip-path: polygon(0 0, 100% 0, 100% 78%, 94% 100%, 6% 100%, 0 78%); }
-  .fv .hero.form-frimarke img { -webkit-mask: radial-gradient(circle at 8px 100%, transparent 6px, #000 6.5px) 0 0 / 16px 100% repeat-x; mask: radial-gradient(circle at 8px 100%, transparent 6px, #000 6.5px) 0 0 / 16px 100% repeat-x; }
-  .fv .hero.form-tygkant img { clip-path: url(#cp-tygkant); }
-  .fv .hero.form-blad img { clip-path: url(#cp-blad); }
-  .fv .hero.form-kapsel img { clip-path: inset(8px 12px 0 12px round 36px 36px 36px 36px); }
-  .fv .hero.form-hyllkant img { clip-path: url(#cp-hyllkant); }
-  .fv .hero.form-bagfade img { clip-path: ellipse(70% 100% at 50% 0%); -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent 100%); mask-image: linear-gradient(180deg, #000 55%, transparent 100%); }
-  .fv .body { padding: 26px 20px 18px; }
+      .fv .body { padding: 14px 20px 18px; }
   .fv .avs { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-bottom: 12px; }
   .fv .avs b { color: var(--ink); font-weight: 600; }
   .fv .hej { font-size: 14px; font-weight: 700; margin: 0 0 6px; }
@@ -181,7 +159,6 @@
 <nav class="rals" id="rals" aria-label="Skärmar"></nav>
 <div class="hint" id="hint"><i></i>Skrolla för fler teman</div>
 <div class="toast" id="toast"></div>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><clipPath id="cp-u" clipPathUnits="objectBoundingBox"><path transform="scale(0.00192307692 0.00666666667)" d="M0 0H520V84C520 138 470 150 380 150H140C50 150 0 138 0 84Z"/></clipPath><clipPath id="cp-valv" clipPathUnits="objectBoundingBox"><path transform="scale(0.00192307692 0.00666666667)" d="M40 150V110A220 110 0 0 1 480 110V150Z"/></clipPath><clipPath id="cp-vag" clipPathUnits="objectBoundingBox"><path transform="scale(0.00192307692 0.00666666667)" d="M0 0H520V118C480 136 440 136 390 122C340 108 300 108 260 122C220 136 180 136 130 122C80 108 40 108 0 122Z"/></clipPath><clipPath id="cp-skold" clipPathUnits="objectBoundingBox"><path transform="scale(0.00192307692 0.00666666667)" d="M0 0H520V100C520 126 330 140 260 150C190 140 0 126 0 100Z"/></clipPath><clipPath id="cp-kuvert" clipPathUnits="objectBoundingBox"><path transform="scale(0.00192307692 0.00666666667)" d="M0 0H520V104L260 150L0 104Z"/></clipPath><clipPath id="cp-kullar" clipPathUnits="objectBoundingBox"><path transform="scale(0.00192307692 0.00666666667)" d="M0 0H520V110C520 136 470 142 390 128C350 120 300 120 260 134C220 120 170 120 130 128C50 142 0 136 0 110Z"/></clipPath><clipPath id="cp-djuput" clipPathUnits="objectBoundingBox"><path transform="scale(0.00192307692 0.00666666667)" d="M40 0H480V80C480 130 440 150 360 150H160C80 150 40 130 40 80Z"/></clipPath><clipPath id="cp-mjukut" clipPathUnits="objectBoundingBox"><path transform="scale(0.00192307692 0.00666666667)" d="M0 0H520V84C520 138 470 150 380 150H140C50 150 0 138 0 84Z"/></clipPath><clipPath id="cp-droppe" clipPathUnits="objectBoundingBox"><path transform="scale(0.00192307692 0.00666666667)" d="M0 0H520V78C520 118 330 118 290 134C278 142 272 150 260 150C248 150 242 142 230 134C190 118 0 118 0 78Z"/></clipPath><clipPath id="cp-horisont" clipPathUnits="objectBoundingBox"><path transform="scale(0.00192307692 0.00666666667)" d="M0 0H520V118L470 100L430 120L380 84L325 122L285 108L245 130L195 96L146 126L98 106L48 130L0 112Z"/></clipPath><clipPath id="cp-tygkant" clipPathUnits="objectBoundingBox"><path transform="scale(0.00192307692 0.00666666667)" d="M0 0H520V140L515 150L510 140L505 150L500 140L495 150L490 140L485 150L480 140L475 150L470 140L465 150L460 140L455 150L450 140L445 150L440 140L435 150L430 140L425 150L420 140L415 150L410 140L405 150L400 140L395 150L390 140L385 150L380 140L375 150L370 140L365 150L360 140L355 150L350 140L345 150L340 140L335 150L330 140L325 150L320 140L315 150L310 140L305 150L300 140L295 150L290 140L285 150L280 140L275 150L270 140L265 150L260 140L255 150L250 140L245 150L240 140L235 150L230 140L225 150L220 140L215 150L210 140L205 150L200 140L195 150L190 140L185 150L180 140L175 150L170 140L165 150L160 140L155 150L150 140L145 150L140 140L135 150L130 140L125 150L120 140L115 150L110 140L105 150L100 140L95 150L90 140L85 150L80 140L75 150L70 140L65 150L60 140L55 150L50 140L45 150L40 140L35 150L30 140L25 150L20 140L15 150L10 140L5 150L0 140Z"/></clipPath><clipPath id="cp-blad" clipPathUnits="objectBoundingBox"><path transform="scale(0.00192307692 0.00666666667)" d="M90 0H520V70C520 115 490 150 430 150H0V70C0 30 30 0 90 0Z"/></clipPath><clipPath id="cp-hyllkant" clipPathUnits="objectBoundingBox"><path transform="scale(0.00192307692 0.00666666667)" d="M0 0H520V128H312A52 52 0 0 0 208 128H0Z"/></clipPath></defs></svg>
 
 <script>
 /* =====================================================================
@@ -235,6 +212,18 @@ const VARIANTER = ['uhd_2560_1440_30fps', 'uhd_2560_1440_25fps', 'uhd_2560_1440_
 const U = (id, w = 1200, h = 1600) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&h=${h}&q=80`;
 const formNamn = { fade: 'Fade', u: 'U-formen', bage: 'Båge', valv: 'Valvet', vag: 'Vågen', skold: 'Skölden', kuvert: 'Kuvertet', oval: 'Spotlighten', snett: 'Snedsnittet', biljett: 'Biljetten', kullar: 'Kullarna', djuput: 'Djupa U:et', mjukut: 'Mjuka U:et', droppe: 'Droppen', horisont: 'Horisonten', prislapp: 'Prislappen', frimarke: 'Frimärket', tygkant: 'Tygkanten', blad: 'Bladet', kapsel: 'Kapseln', hyllkant: 'Hyllkanten', bagfade: 'Bågfade' };
 
+const FORMER = {"u": {"n": "U-formen", "d": "M0 0H640V150C640 250 560 280 480 280H160C80 280 0 250 0 150Z", "h": 330, "ax": 320, "ay": 280, "ar": 36, "soft": 0}, "djuput": {"n": "Djupa U:et", "d": "M60 0H580V170C580 260 520 300 420 300H220C120 300 60 260 60 170Z", "h": 350, "ax": 320, "ay": 300, "ar": 36, "soft": 0}, "mjukut": {"n": "Mjuka U:et", "d": "M-40 -40H680V140C680 250 580 272 480 272H160C60 272 -40 250 -40 140Z", "h": 330, "ax": 320, "ay": 272, "ar": 36, "soft": 14}, "valv": {"n": "Valvet", "d": "M40 280V230A280 230 0 0 1 600 230V280Z", "h": 310, "ax": 320, "ay": 280, "ar": 34, "soft": 0}, "skold": {"n": "Skölden", "d": "M0 0H640V170C640 220 400 250 320 300C240 250 0 220 0 170Z", "h": 350, "ax": 320, "ay": 300, "ar": 34, "soft": 0}, "kuvert": {"n": "Kuvertet", "d": "M0 0H640V190L320 290L0 190Z", "h": 340, "ax": 320, "ay": 290, "ar": 34, "soft": 0}, "droppe": {"n": "Droppen", "d": "M0 0H640V150C640 230 400 230 350 270C335 282 330 300 320 312C310 300 305 282 290 270C240 230 0 230 0 150Z", "h": 360, "ax": 320, "ay": 318, "ar": 30, "soft": 0}, "horisont": {"n": "Horisonten", "d": "M0 0H640V220L580 190L530 225L470 160L400 230L350 205L300 245L240 180L180 235L120 200L60 240L0 210Z", "h": 300, "ax": 320, "ay": 262, "ar": 32, "soft": 0}, "vag": {"n": "Vågen", "d": "M0 0H640V214C590 244 540 244 480 222C420 200 370 200 320 222C270 244 220 244 160 222C100 200 50 200 0 222Z", "h": 290, "ax": 320, "ay": 248, "ar": 32, "soft": 0}, "snett": {"n": "Snedsnittet", "d": "M0 0H640V170Q640 200 610 206L30 262Q0 266 0 236Z", "h": 300, "ax": 560, "ay": 218, "ar": 32, "soft": 0}, "prislapp": {"n": "Prislappen", "d": "M0 0H640V230L600 270H40L0 230Z", "h": 300, "ax": 320, "ay": 270, "ar": 32, "soft": 0}, "biljett": {"n": "Biljetten", "d": "M0 0H640V214A26 26 0 0 0 640 266V270H0V266A26 26 0 0 0 0 214Z", "h": 300, "ax": 320, "ay": 270, "ar": 32, "soft": 0}, "frimarke": {"n": "Frimärket", "d": "M0 0H640V250Q632.0 259 624.0 250Q616.0 259 608.0 250Q600.0 259 592.0 250Q584.0 259 576.0 250Q568.0 259 560.0 250Q552.0 259 544.0 250Q536.0 259 528.0 250Q520.0 259 512.0 250Q504.0 259 496.0 250Q488.0 259 480.0 250Q472.0 259 464.0 250Q456.0 259 448.0 250Q440.0 259 432.0 250Q424.0 259 416.0 250Q408.0 259 400.0 250Q392.0 259 384.0 250Q376.0 259 368.0 250Q360.0 259 352.0 250Q344.0 259 336.0 250Q328.0 259 320.0 250Q312.0 259 304.0 250Q296.0 259 288.0 250Q280.0 259 272.0 250Q264.0 259 256.0 250Q248.0 259 240.0 250Q232.0 259 224.0 250Q216.0 259 208.0 250Q200.0 259 192.0 250Q184.0 259 176.0 250Q168.0 259 160.0 250Q152.0 259 144.0 250Q136.0 259 128.0 250Q120.0 259 112.0 250Q104.0 259 96.0 250Q88.0 259 80.0 250Q72.0 259 64.0 250Q56.0 259 48.0 250Q40.0 259 32.0 250Q24.0 259 16.0 250Q8.0 259 0.0 250Z", "h": 300, "ax": 320, "ay": 262, "ar": 32, "soft": 0}, "tygkant": {"n": "Tygkanten", "d": "M0 0H640V248L631.0 258L622.0 248L613.0 258L604.0 248L595.0 258L586.0 248L577.0 258L568.0 248L559.0 258L550.0 248L541.0 258L532.0 248L523.0 258L514.0 248L505.0 258L496.0 248L487.0 258L478.0 248L469.0 258L460.0 248L451.0 258L442.0 248L433.0 258L424.0 248L415.0 258L406.0 248L397.0 258L388.0 248L379.0 258L370.0 248L361.0 258L352.0 248L343.0 258L334.0 248L325.0 258L316.0 248L307.0 258L298.0 248L289.0 258L280.0 248L271.0 258L262.0 248L253.0 258L244.0 248L235.0 258L226.0 248L217.0 258L208.0 248L199.0 258L190.0 248L181.0 258L172.0 248L163.0 258L154.0 248L145.0 258L136.0 248L127.0 258L118.0 248L109.0 258L100.0 248L91.0 258L82.0 248L73.0 258L64.0 248L55.0 258L46.0 248L37.0 258L28.0 248L19.0 258L10.0 248L1.0 258L0.0 248Z", "h": 300, "ax": 320, "ay": 262, "ar": 32, "soft": 0}, "blad": {"n": "Bladet", "d": "M150 0H640V120C640 200 580 260 490 260H0V150C0 70 70 0 150 0Z", "h": 300, "ax": 490, "ay": 262, "ar": 32, "soft": 0}, "kullar": {"n": "Kullarna", "d": "M0 0H640V200C640 250 560 262 480 238C420 220 380 220 320 246C260 220 220 220 160 238C80 262 0 250 0 200Z", "h": 300, "ax": 320, "ay": 256, "ar": 32, "soft": 0}, "kapsel": {"n": "Kapseln", "d": "M72 20H568A52 52 0 0 1 620 72V204A52 52 0 0 1 568 256H72A52 52 0 0 1 20 204V72A52 52 0 0 1 72 20Z", "h": 300, "ax": 320, "ay": 256, "ar": 32, "soft": 0}, "oval": {"n": "Spotlighten", "d": "M320 20C520 20 610 90 610 150C610 220 510 270 320 270C130 270 30 220 30 150C30 90 120 20 320 20Z", "h": 310, "ax": 320, "ay": 272, "ar": 32, "soft": 22}, "hyllkant": {"n": "Hyllkanten", "d": "M0 0H640V240H380A60 60 0 0 0 260 240H0Z", "h": 300, "ax": 320, "ay": 240, "ar": 36, "soft": 0}, "bagfade": {"n": "Bågfade", "d": "M-40 -40H680V256Q320 190 -40 256Z", "h": 300, "ax": 320, "ay": 254, "ar": 36, "soft": 10}};
+let svgN = 0;
+function heroSvg(form, bild, accent, initial) {
+  const f = FORMER[form] || FORMER.u; const W = 640, H = f.h + 40, id = 'hs' + (++svgN);
+  const blur = f.soft ? `<filter id="f${id}" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="${f.soft}"/></filter>` : '';
+  const ring = f.ar + 5, dot = Math.max(6, f.ar * 0.22);
+  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg"><defs>${blur}<mask id="m${id}" maskUnits="userSpaceOnUse" x="0" y="0" width="${W}" height="${H}"><rect width="${W}" height="${H}" fill="#000"/><path d="${f.d}" fill="#FFF" ${f.soft ? `filter="url(#f${id})"` : ''}/></mask></defs>
+    <g mask="url(#m${id})"><rect width="${W}" height="${H}" fill="#CFC9BE"/><image href="${U(bild, 1280, 720)}" width="${W}" height="${H}" preserveAspectRatio="xMidYMid slice"/></g>
+    <circle cx="${f.ax}" cy="${f.ay}" r="${ring}" fill="#FAFAF6"/><circle cx="${f.ax}" cy="${f.ay}" r="${f.ar}" fill="${accent}" class="av-fill"/>
+    <text x="${f.ax}" y="${(f.ay + f.ar * 0.34).toFixed(1)}" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="${Math.round(f.ar * 0.95)}" font-weight="700" fill="#FFFFFF">${initial}</text>
+    <circle cx="${(f.ax + f.ar * 0.72).toFixed(1)}" cy="${(f.ay + f.ar * 0.72).toFixed(1)}" r="${dot.toFixed(1)}" fill="#22A45D" stroke="#FAFAF6" stroke-width="3"/></svg>`;
+}
 const main = document.getElementById('main'), rals = document.getElementById('rals');
 const state = { vald: null };
 
@@ -273,9 +262,9 @@ SKARMAR.forEach((rubrik, si) => {
         <div class="toner">${t.toner.map((x, k) => `<span class="ton ${k === 0 ? 'on' : ''}" data-k="${k}"><i style="background:${x[1]}"></i>${x[0]}</span>`).join('')}</div>
         <p class="lbl">Så blir mejlet</p>
         <div class="fv">
-          <div class="hero form-${t.mallar[0].form}"><img src="${U(t.mallar[0].bild, 1040, 300)}" alt=""><div class="av" style="background:${t.accent}">${t.butik[0]}</div></div>
+          <div class="hero">${heroSvg(t.mallar[0].form, t.mallar[0].bild, t.accent, t.butik[0])}</div>
           <div class="body">
-            <div class="avs"><span><b>Ida Norén</b> &nbsp;${t.butik} kundservice</span><span>26 september · D-2216</span></div>
+            <div class="avs" style="justify-content:center; text-align:center; flex-direction:column; gap:2px; align-items:center;"><span><b>Ida Norén</b> &nbsp;${t.butik} kundservice</span><span>26 september · D-2216</span></div>
             <p class="hej" style="color:${t.accent}">Hej Sara,</p>
             <p class="txt">${t.svar}</p>
             <div class="prod"><span><b>${t.prod[0]}</b>${t.prod[1]}</span><span class="pris" style="color:${t.accent}">${t.prod[2]}</span></div>
@@ -311,13 +300,12 @@ SKARMAR.forEach((rubrik, si) => {
     });
     f.querySelectorAll('.mall').forEach(el => el.addEventListener('click', () => {
       const k = +el.dataset.k; f.querySelectorAll('.mall').forEach(x => x.classList.toggle('on', x === el));
-      const hero = f.querySelector('.fv .hero'), hi = hero.querySelector('img');
-      hero.className = 'hero form-' + t.mallar[k].form;
-      hi.style.opacity = 0; setTimeout(() => { hi.src = U(t.mallar[k].bild, 1040, 300); hi.onload = () => hi.style.opacity = 1; }, 200);
+      const hero = f.querySelector('.fv .hero'); const acc = f.querySelector('.fv .av-fill').getAttribute('fill');
+      hero.style.opacity = 0; setTimeout(() => { hero.innerHTML = heroSvg(t.mallar[k].form, t.mallar[k].bild, acc, t.butik[0]); hero.style.opacity = 1; }, 220);
     }));
     f.querySelectorAll('.ton').forEach(el => el.addEventListener('click', () => {
       const k = +el.dataset.k; f.querySelectorAll('.ton').forEach(x => x.classList.toggle('on', x === el));
-      const c = t.toner[k][1]; f.querySelector('.fv .hej').style.color = c; f.querySelector('.fv .pris').style.color = c; f.querySelector('.fv .av').style.background = c;
+      const c = t.toner[k][1]; f.querySelector('.fv .hej').style.color = c; f.querySelector('.fv .pris').style.color = c; f.querySelector('.fv .av-fill').setAttribute('fill', c);
     }));
     f.querySelector('[data-act="valj"]').addEventListener('click', () => {
       state.vald = t.id; document.querySelectorAll('.falt').forEach(x => x.classList.toggle('vald', x.id === t.id));
