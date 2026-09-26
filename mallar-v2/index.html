@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navos Produktkort</title>
+<style>
+  :root { --bg:#EFEFEC; --ink:#17181A; --muted:#63656B; --line:#D9D9D4; --card:#FFFFFF; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:'Avenir Next', 'Segoe UI', Helvetica, Arial, sans-serif; }
+  header { max-width:1500px; margin:0 auto; padding:40px 24px 4px; }
+  h1 { margin:0; font-size:30px; letter-spacing:-0.02em; }
+  header p { margin:8px 0 0; color:var(--muted); max-width:68ch; line-height:1.55; }
+  main { max-width:1500px; margin:0 auto; padding:24px; display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:32px 24px; }
+  article { display:flex; flex-direction:column; gap:10px; }
+  .thumb { display:block; position:relative; height:520px; border-radius:12px; overflow:hidden; background:var(--card); border:1px solid var(--line); transition:transform .15s ease, box-shadow .15s ease; }
+  .thumb:hover, .thumb:focus-visible { transform:translateY(-3px); box-shadow:0 14px 30px -18px rgba(0,0,0,.4); outline:none; }
+  .thumb:focus-visible { box-shadow:0 0 0 3px var(--ink); }
+  .thumb iframe { position:absolute; top:0; left:0; width:760px; height:1300px; border:0; transform:scale(.42); transform-origin:0 0; pointer-events:none; }
+  .meta { display:flex; gap:12px; align-items:baseline; }
+  .nr { font-size:22px; font-weight:700; font-variant-numeric:tabular-nums; color:var(--muted); }
+  h2 { margin:0; font-size:17px; }
+  .bolag { margin:1px 0 0; font-size:12.5px; color:var(--muted); }
+  .ide { margin:0; font-size:13.5px; line-height:1.5; color:var(--muted); }
+  @media (min-width:700px) { .thumb iframe { transform:scale(.45); } }
+  @media (prefers-reduced-motion: reduce) { .thumb { transition:none; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Navos supportsvar och produktkort, runda 2</h1>
+  <p>Tjugo nya mallar i samma anda som Vinetiketten, Tvättlappen och Skivan. Svaret är lugnt och tydligt, och varje produktkort visar produkten med det språk som hör till den: recept, färgbad, Kelvin eller däckklasser. Klicka för att öppna en mall i full storlek, och säg numret på de du gillar.</p>
+</header>
+<main>
+  <article>
+    <a class="thumb" href="01-rostprofilen.html" target="_blank" aria-label="Öppna Rostprofilen">
+      <iframe src="01-rostprofilen.html" title="Rostprofilen" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">01</span><div><h2>Rostprofilen</h2><p class="bolag">Kafferosteriet Norrland</p></div></div>
+    <p class="ide">Navos-bågen. Produktkorten visar rostgrad som prickar, smaknoter som etiketter och rostdatum.</p>
+  </article>
+  <article>
+    <a class="thumb" href="02-glasogonreceptet.html" target="_blank" aria-label="Öppna Glasögonreceptet">
+      <iframe src="02-glasogonreceptet.html" title="Glasögonreceptet" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">02</span><div><h2>Glasögonreceptet</h2><p class="bolag">Optiker Klar</p></div></div>
+    <p class="ide">Produktkortet innehåller glasögonreceptet som tabell (SPH, CYL, AXEL, ADD) och bågens mått.</p>
+  </article>
+  <article>
+    <a class="thumb" href="03-skokartongen.html" target="_blank" aria-label="Öppna Skokartongen">
+      <iframe src="03-skokartongen.html" title="Skokartongen" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">03</span><div><h2>Skokartongen</h2><p class="bolag">Löparbutiken Steg</p></div></div>
+    <p class="ide">Produktkortet är etiketten på skokartongen, med storlekar i EU, US, UK och cm där kundens storlek är markerad.</p>
+  </article>
+  <article>
+    <a class="thumb" href="04-ingredienslistan.html" target="_blank" aria-label="Öppna Ingredienslistan">
+      <iframe src="04-ingredienslistan.html" title="Ingredienslistan" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">04</span><div><h2>Ingredienslistan</h2><p class="bolag">Hudverket</p></div></div>
+    <p class="ide">Produktkortet visar var produkten ligger på pH-skalan och ingredienslistan med de aktiva ämnena markerade.</p>
+  </article>
+  <article>
+    <a class="thumb" href="05-teburken.html" target="_blank" aria-label="Öppna Teburken">
+      <iframe src="05-teburken.html" title="Teburken" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">05</span><div><h2>Teburken</h2><p class="bolag">Teboden</p></div></div>
+    <p class="ide">En teburk ritad med CSS bredvid svaret. Produktkortet är en bryggguide med temperatur, tid och mängd.</p>
+  </article>
+  <article>
+    <a class="thumb" href="06-vaxtpasset.html" target="_blank" aria-label="Öppna Växtpasset">
+      <iframe src="06-vaxtpasset.html" title="Växtpasset" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">06</span><div><h2>Växtpasset</h2><p class="bolag">Gröna Rummet</p></div></div>
+    <p class="ide">Navos-fade. Produktkortet är ett växtpass med mätare för ljus, vatten och svårighet, och en stämpel.</p>
+  </article>
+  <article>
+    <a class="thumb" href="07-prislappen.html" target="_blank" aria-label="Öppna Prislappen">
+      <iframe src="07-prislappen.html" title="Prislappen" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">07</span><div><h2>Prislappen</h2><p class="bolag">Vintage & Vänner</p></div></div>
+    <p class="ide">Produktkorten är prislappar i kraftpapper som hänger i ett snöre, med skick, mått och handskrivet pris.</p>
+  </article>
+  <article>
+    <a class="thumb" href="08-bokryggarna.html" target="_blank" aria-label="Öppna Bokryggarna">
+      <iframe src="08-bokryggarna.html" title="Bokryggarna" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">08</span><div><h2>Bokryggarna</h2><p class="bolag">Bokhandeln Kapitel</p></div></div>
+    <p class="ide">En trave bokryggar bredvid rubriken. Produktkorten har en färgad bokrygg och en rad om varför kunden kommer att gilla boken.</p>
+  </article>
+  <article>
+    <a class="thumb" href="09-jamforelsen.html" target="_blank" aria-label="Öppna Jämförelsen">
+      <iframe src="09-jamforelsen.html" title="Jämförelsen" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">09</span><div><h2>Jämförelsen</h2><p class="bolag">Ljudbutiken</p></div></div>
+    <p class="ide">Två produkter jämförs sida vid sida med staplar, och den rekommenderade är markerad.</p>
+  </article>
+  <article>
+    <a class="thumb" href="10-passar-din-cykel.html" target="_blank" aria-label="Öppna Passar din cykel">
+      <iframe src="10-passar-din-cykel.html" title="Passar din cykel" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">10</span><div><h2>Passar din cykel</h2><p class="bolag">Cykelkedjan</p></div></div>
+    <p class="ide">Ett kort ovanpå bilden visar kundens cykel och vilka delar som passar. Varje produkt har märket "Passar din cykel".</p>
+  </article>
+  <article>
+    <a class="thumb" href="11-mattritningen.html" target="_blank" aria-label="Öppna Måttritningen">
+      <iframe src="11-mattritningen.html" title="Måttritningen" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">11</span><div><h2>Måttritningen</h2><p class="bolag">Möbelstudion</p></div></div>
+    <p class="ide">Produktkortet är en måttritning på rutpapper, och bredvid bockas det av att soffan kommer in genom dörren.</p>
+  </article>
+  <article>
+    <a class="thumb" href="12-doftpyramiden.html" target="_blank" aria-label="Öppna Doftpyramiden">
+      <iframe src="12-doftpyramiden.html" title="Doftpyramiden" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">12</span><div><h2>Doftpyramiden</h2><p class="bolag">Doftateljén</p></div></div>
+    <p class="ide">Doftens topp-, hjärt- och basnoter visas som en pyramid. Produktkorten har en stapel för hur länge doften håller.</p>
+  </article>
+  <article>
+    <a class="thumb" href="13-mattbandet.html" target="_blank" aria-label="Öppna Måttbandet">
+      <iframe src="13-mattbandet.html" title="Måttbandet" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">13</span><div><h2>Måttbandet</h2><p class="bolag">Lilla Ull</p></div></div>
+    <p class="ide">Ett gult måttband visar barnets nuvarande storlek och den som rekommenderas. Produktkortet har storleksväljare.</p>
+  </article>
+  <article>
+    <a class="thumb" href="14-banderollen.html" target="_blank" aria-label="Öppna Banderollen">
+      <iframe src="14-banderollen.html" title="Banderollen" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">14</span><div><h2>Banderollen</h2><p class="bolag">Garnverket</p></div></div>
+    <p class="ide">Ett garnnystan med banderoll ritat med CSS. Färgbadsnumret, som är det stickare bryr sig mest om, lyfts fram.</p>
+  </article>
+  <article>
+    <a class="thumb" href="15-portionsguiden.html" target="_blank" aria-label="Öppna Portionsguiden">
+      <iframe src="15-portionsguiden.html" title="Portionsguiden" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">15</span><div><h2>Portionsguiden</h2><p class="bolag">Tassen Djurbutik</p></div></div>
+    <p class="ide">En portionstabell där raden för kundens hund är markerad, och en bytesplan för fodret dag för dag.</p>
+  </article>
+  <article>
+    <a class="thumb" href="16-gravyren.html" target="_blank" aria-label="Öppna Gravyren">
+      <iframe src="16-gravyren.html" title="Gravyren" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">16</span><div><h2>Gravyren</h2><p class="bolag">Guldsmedjan</p></div></div>
+    <p class="ide">Navos-bågen. Gravyren förhandsvisas på ett guldband, och ringstorleken visas som ringar i olika storlek.</p>
+  </article>
+  <article>
+    <a class="thumb" href="17-simkortet.html" target="_blank" aria-label="Öppna SIM-kortet">
+      <iframe src="17-simkortet.html" title="SIM-kortet" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">17</span><div><h2>SIM-kortet</h2><p class="bolag">Fjällmobil</p></div></div>
+    <p class="ide">Ett SIM-kort med chip bredvid svaret. Produktkortet visar hur mycket surf som använts och det nya abonnemanget.</p>
+  </article>
+  <article>
+    <a class="thumb" href="18-nyckelkortet.html" target="_blank" aria-label="Öppna Nyckelkortet">
+      <iframe src="18-nyckelkortet.html" title="Nyckelkortet" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">18</span><div><h2>Nyckelkortet</h2><p class="bolag">Hotell Kajen</p></div></div>
+    <p class="ide">Ett rumsnyckelkort ligger ovanpå hotellbilden, och bokningen visas som en lista med tider.</p>
+  </article>
+  <article>
+    <a class="thumb" href="19-fargtemperaturen.html" target="_blank" aria-label="Öppna Färgtemperaturen">
+      <iframe src="19-fargtemperaturen.html" title="Färgtemperaturen" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">19</span><div><h2>Färgtemperaturen</h2><p class="bolag">Ljushuset</p></div></div>
+    <p class="ide">Kelvinskalan från varmt till kallt ljus, med kundens nuvarande lampa och den rekommenderade markerade.</p>
+  </article>
+  <article>
+    <a class="thumb" href="20-dacketiketten.html" target="_blank" aria-label="Öppna Däcketiketten">
+      <iframe src="20-dacketiketten.html" title="Däcketiketten" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">20</span><div><h2>Däcketiketten</h2><p class="bolag">Däckcentralen</p></div></div>
+    <p class="ide">Produktkortet är EU:s däcketikett med klasser för bränsle, våtgrepp och buller.</p>
+  </article>
+</main>
+</body>
+</html>
