@@ -34,33 +34,37 @@
   /* ---------- skärmar (fyra fält per skärm) ---------- */
   main { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; scroll-behavior: smooth; scrollbar-width: none; }
   main::-webkit-scrollbar { display: none; }
-  .skarm { height: 100vh; scroll-snap-align: start; scroll-snap-stop: always; display: flex; background: #000; }
-  .falt { position: relative; flex: 1 1 0; min-width: 0; overflow: hidden; cursor: pointer; transition: flex 0.9s var(--ease); border-right: 1px solid rgba(255,255,255,0.06); }
-  .falt:last-child { border-right: 0; }
-  .skarm:not(.oppen) .falt:hover { flex: 1.18 1 0; }
-  .skarm.oppen .falt { flex: 0 0 96px; }
-  .skarm.oppen .falt.on { flex: 1 1 0; cursor: default; }
-
-  .falt video, .falt img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.08); transition: opacity 1.2s var(--ease), transform 8s var(--ease); }
+  .skarm { position: relative; height: 100vh; scroll-snap-align: start; scroll-snap-stop: always; background: #000; overflow: hidden; }
+  .falt { position: absolute; inset: 0; opacity: 0; pointer-events: none; transition: opacity 1.1s var(--ease); cursor: pointer; }
+  .falt.aktiv { opacity: 1; pointer-events: auto; }
+  .falt.on { cursor: default; }
+  .falt video, .falt img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.05); transition: opacity 1.2s var(--ease), transform 9s var(--ease); }
   .falt .ready { opacity: 1; transform: scale(1); }
   .falt img.ready.drift { animation: drift 30s linear infinite alternate; }
-  @keyframes drift { from { transform: scale(1.04) translate(0,0); } to { transform: scale(1.12) translate(-1.5%,-1%); } }
-  .falt::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.62) 100%); pointer-events: none; transition: background 0.9s; }
-  .skarm.oppen .falt:not(.on)::after { background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.75) 100%); }
-  .skarm.oppen .falt.on::after { background: linear-gradient(90deg, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.05) 45%, rgba(0,0,0,0.55) 100%), linear-gradient(180deg, rgba(0,0,0,0.20) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.35) 100%); }
+  @keyframes drift { from { transform: scale(1.02) translate(0,0); } to { transform: scale(1.07) translate(-1%,-0.6%); } }
+  .falt::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0) 35%, rgba(0,0,0,0.55) 78%, rgba(0,0,0,0.8) 100%); pointer-events: none; transition: background 0.9s; }
+  .falt.on::after { background: linear-gradient(90deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.6) 100%), linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.5) 100%); }
 
-  .etikett { position: absolute; left: 28px; right: 24px; bottom: 34px; color: var(--white); z-index: 2; transition: all 0.9s var(--ease); }
-  .etikett h2 { margin: 0; font-size: clamp(30px, 3.2vw, 44px); font-weight: 600; letter-spacing: -0.03em; line-height: 1; }
-  .etikett p { margin: 10px 0 0; font-size: 14px; color: rgba(255,255,255,0.82); max-width: 32ch; transition: opacity 0.5s; }
-  .etikett .nu { display: none; align-items: center; gap: 7px; margin-top: 12px; padding: 5px 11px; border-radius: 999px; background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.25); font-size: 12px; font-weight: 600; backdrop-filter: blur(8px); }
+  .etikett { position: absolute; left: 64px; bottom: 168px; color: var(--white); z-index: 2; transition: all 0.9s var(--ease); }
+  .etikett h2 { margin: 0; font-size: clamp(56px, 6.5vw, 100px); font-weight: 600; letter-spacing: -0.035em; line-height: 0.95; }
+  .etikett p { margin: 12px 0 0; font-size: 16px; color: rgba(255,255,255,0.85); max-width: 44ch; transition: opacity 0.5s; }
+  .etikett .nu { display: none; align-items: center; gap: 7px; margin-top: 14px; padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.25); font-size: 12.5px; font-weight: 600; backdrop-filter: blur(8px); }
   .etikett .nu i { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 3px rgba(34,164,93,0.3); }
   .falt.vald .etikett .nu { display: inline-flex; }
-  .skarm.oppen .falt:not(.on) .etikett { left: 14px; right: 8px; bottom: 30px; }
-  .skarm.oppen .falt:not(.on) .etikett h2 { font-size: 22px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .skarm.oppen .falt:not(.on) .etikett p, .skarm.oppen .falt:not(.on) .etikett .nu { opacity: 0; height: 0; margin: 0; overflow: hidden; }
-  .skarm.oppen .falt.on .etikett { left: 64px; right: auto; bottom: auto; top: 110px; }
-  .skarm.oppen .falt.on .etikett h2 { font-size: clamp(56px, 6vw, 92px); }
-  .skarm.oppen .falt.on .etikett p, .skarm.oppen .falt.on .etikett .nu { opacity: 0; height: 0; margin: 0; overflow: hidden; }
+  .etikett .oppna { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; padding: 10px 16px; border-radius: 999px; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.3); font-size: 13px; font-weight: 600; backdrop-filter: blur(10px); transition: background 0.3s; }
+  .falt:hover .etikett .oppna { background: rgba(255,255,255,0.24); }
+  .falt.on .etikett { left: 64px; bottom: auto; top: 100px; }
+  .falt.on .etikett p, .falt.on .etikett .nu, .falt.on .etikett .oppna { opacity: 0; height: 0; margin: 0; overflow: hidden; }
+
+  .remsa { position: absolute; left: 64px; right: 64px; bottom: 40px; z-index: 4; display: flex; gap: 12px; transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
+  .skarm.oppen .remsa { opacity: 0; transform: translateY(20px); pointer-events: none; }
+  .tumme { position: relative; flex: 1 1 0; aspect-ratio: 16 / 9; max-width: 220px; border-radius: 10px; overflow: hidden; cursor: pointer; border: 1.5px solid rgba(255,255,255,0.22); background: #111; transition: border-color 0.3s, transform 0.5s var(--ease); }
+  .tumme img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s var(--ease); }
+  .tumme:hover { transform: translateY(-3px); } .tumme:hover img { transform: scale(1.05); }
+  .tumme span { position: absolute; left: 10px; bottom: 8px; color: #fff; font-size: 12.5px; font-weight: 600; text-shadow: 0 1px 6px rgba(0,0,0,0.6); }
+  .tumme::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.6)); }
+  .tumme.aktiv { border-color: #fff; }
+  .tumme.aktiv::before { content: ""; position: absolute; left: 10px; top: 8px; width: 7px; height: 7px; border-radius: 50%; background: #fff; z-index: 2; }
 
   /* ---------- panelen ---------- */
   .kort { position: absolute; top: 50%; right: 56px; width: 520px; max-height: calc(100vh - 80px); overflow-y: auto; scrollbar-width: none; transform: translate(40px, -50%); opacity: 0; pointer-events: none; z-index: 3; color: var(--white); transition: all 0.9s var(--ease) 0.25s; }
@@ -162,7 +166,7 @@
 <div class="topp"><span>Tema · <b id="topp-namn">Analogt och hantverk</b></span><span><button class="kopiera" id="kopiera">Kopiera klipplista</button> &nbsp; <b id="topp-nr">1</b> / 3</span></div>
 <main id="main"></main>
 <nav class="rals" id="rals" aria-label="Skärmar"></nav>
-<div class="hint" id="hint"><i></i>Skrolla för fler teman</div>
+<div class="hint" id="hint"><i></i>Skrolla för nästa grupp</div>
 <div class="toast" id="toast"></div>
 
 <script>
@@ -242,7 +246,7 @@ SKARMAR.forEach((rubrik, si) => {
     f.innerHTML = `
       <img alt="" src="${t.poster || U(t.bild)}">
       <video muted loop playsinline preload="none"></video>
-      <div class="etikett"><h2>${t.namn}</h2><p>${t.desc}</p><span class="nu"><i></i>Används nu</span></div>
+      <div class="etikett"><h2>${t.namn}</h2><p>${t.desc}</p><span class="nu"><i></i>Används nu</span><span class="oppna">Välj mall och ton →</span></div>
       <div class="kort">
         <p class="lbl">Mall för alla medarbetare</p>
         <h3>${t.namn}</h3>
@@ -281,14 +285,13 @@ SKARMAR.forEach((rubrik, si) => {
     f._video = v; f._kallor = kallor; f._laddad = false;
     f._ladda = () => {
       if (f._laddad) return; f._laddad = true;
-      laddaVideo(v, kallor, () => { v.classList.add('ready'); img.classList.remove('drift'); if (skarm.classList.contains('on')) v.play().catch(() => {}); }, () => v.remove());
+      laddaVideo(v, kallor, () => { v.classList.add('ready'); img.classList.remove('drift'); if (skarm.classList.contains('on') && f.classList.contains('aktiv')) v.play().catch(() => {}); }, () => v.remove());
     };
 
     /* öppna fältet */
     f.addEventListener('click', e => {
       if (e.target.closest('.kort')) return;
-      if (f.classList.contains('on')) return;
-      skarm.querySelectorAll('.falt').forEach(x => x.classList.remove('on'));
+      if (f.classList.contains('on') || !f.classList.contains('aktiv')) return;
       f.classList.add('on'); skarm.classList.add('oppen'); document.body.classList.add('oppen-lage');
     });
     f.querySelectorAll('.mall').forEach(el => el.addEventListener('click', () => {
@@ -323,13 +326,33 @@ SKARMAR.forEach((rubrik, si) => {
     });
     f.querySelector('[data-act="stang"]').addEventListener('click', () => { f.classList.remove('on'); skarm.classList.remove('oppen'); document.body.classList.remove('oppen-lage'); });
   });
+  const remsa = document.createElement('div'); remsa.className = 'remsa';
+  const falten = [...skarm.querySelectorAll('.falt')];
+  falten.forEach((f, k) => {
+    const t = TEMAN[si * 4 + k];
+    const tum = document.createElement('div'); tum.className = 'tumme' + (k === 0 ? ' aktiv' : '');
+    tum.innerHTML = `<img src="${t.poster || U(t.bild, 640, 360)}" alt=""><span>${t.namn}</span>`;
+    tum.addEventListener('click', () => valjTema(skarm, k));
+    remsa.appendChild(tum);
+  });
+  skarm.appendChild(remsa);
+  falten[0].classList.add('aktiv');
   main.appendChild(skarm);
   const a = document.createElement('a'); a.href = '#'; a.innerHTML = '<i></i>'; a.title = rubrik;
   a.addEventListener('click', e => { e.preventDefault(); skarm.scrollIntoView({ behavior: 'smooth' }); });
   rals.appendChild(a);
 });
 
-/* aktiv skärm: ladda och spela dess fyra klipp, förbered nästa skärm, pausa resten */
+function valjTema(skarm, k) {
+  const falten = [...skarm.querySelectorAll('.falt')];
+  falten.forEach((f, i) => {
+    f.classList.toggle('aktiv', i === k); f.classList.remove('on');
+    const v = f._video; if (v && v.isConnected) { if (i === k) v.play().catch(() => {}); else v.pause(); }
+  });
+  skarm.classList.remove('oppen'); document.body.classList.remove('oppen-lage');
+  skarm.querySelectorAll('.tumme').forEach((x, i) => x.classList.toggle('aktiv', i === k));
+}
+/* aktiv skärm: ladda dess fyra klipp, spela det aktiva, förbered nästa skärm */
 const skarmar = [...document.querySelectorAll('.skarm')];
 let aktiv = -1;
 function aktivera(i) {
@@ -340,7 +363,7 @@ function aktivera(i) {
     s.querySelectorAll('.falt').forEach(f => {
       if (k === i || k === i + 1) f._ladda();
       const v = f._video; if (!v || !v.isConnected) return;
-      if (k === i) v.play().catch(() => {}); else v.pause();
+      if (k === i && f.classList.contains('aktiv')) v.play().catch(() => {}); else v.pause();
     });
   });
   rals.querySelectorAll('a').forEach((a, k) => a.classList.toggle('on', k === i));
