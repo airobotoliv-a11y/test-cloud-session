@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navos Mejlmallar</title>
+<style>
+  :root { --bg:#EFEFEC; --ink:#17181A; --muted:#63656B; --line:#D9D9D4; --card:#FFFFFF; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:'Avenir Next', 'Segoe UI', Helvetica, Arial, sans-serif; }
+  header { max-width:1500px; margin:0 auto; padding:40px 24px 4px; }
+  h1 { margin:0; font-size:30px; letter-spacing:-0.02em; }
+  header p { margin:8px 0 0; color:var(--muted); max-width:68ch; line-height:1.55; }
+  main { max-width:1500px; margin:0 auto; padding:24px; display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:32px 24px; }
+  article { display:flex; flex-direction:column; gap:10px; }
+  .thumb { display:block; position:relative; height:520px; border-radius:12px; overflow:hidden; background:var(--card); border:1px solid var(--line); transition:transform .15s ease, box-shadow .15s ease; }
+  .thumb:hover, .thumb:focus-visible { transform:translateY(-3px); box-shadow:0 14px 30px -18px rgba(0,0,0,.4); outline:none; }
+  .thumb:focus-visible { box-shadow:0 0 0 3px var(--ink); }
+  .thumb iframe { position:absolute; top:0; left:0; width:760px; height:1300px; border:0; transform:scale(.42); transform-origin:0 0; pointer-events:none; }
+  .meta { display:flex; gap:12px; align-items:baseline; }
+  .nr { font-size:22px; font-weight:700; font-variant-numeric:tabular-nums; color:var(--muted); }
+  h2 { margin:0; font-size:17px; }
+  .bolag { margin:1px 0 0; font-size:12.5px; color:var(--muted); }
+  .ide { margin:0; font-size:13.5px; line-height:1.5; color:var(--muted); }
+  @media (min-width:700px) { .thumb iframe { transform:scale(.45); } }
+  @media (prefers-reduced-motion: reduce) { .thumb { transition:none; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Navos mejlmallar, 20 förslag</h1>
+  <p>Alla mallar har samma innehåll: avsändare, ärende, svar, produkt eller bokning, kundens meddelande och Navos-sidfot. Varje mall bygger på ett föremål som passar företaget. Klicka för att öppna en mall i full storlek, och säg numret på de du gillar.</p>
+</header>
+<main>
+  <article>
+    <a class="thumb" href="01-vykortet.html" target="_blank" aria-label="Öppna Vykortet">
+      <iframe src="01-vykortet.html" title="Vykortet" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">01</span><div><h2>Vykortet</h2><p class="bolag">Blomsterverket</p></div></div>
+    <p class="ide">Vårmallen från förra rundan: foto med vit ram, meddelande- och adresssida med frimärke och poststämpel.</p>
+  </article>
+  <article>
+    <a class="thumb" href="02-kvittot.html" target="_blank" aria-label="Öppna Kvittot">
+      <iframe src="02-kvittot.html" title="Kvittot" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">02</span><div><h2>Kvittot</h2><p class="bolag">Bageriet Surdeg</p></div></div>
+    <p class="ide">Svaret som ett kassakvitto med tandad kant, streckkod och prickade rader.</p>
+  </article>
+  <article>
+    <a class="thumb" href="03-boardingkortet.html" target="_blank" aria-label="Öppna Boardingkortet">
+      <iframe src="03-boardingkortet.html" title="Boardingkortet" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">03</span><div><h2>Boardingkortet</h2><p class="bolag">Nordvinge</p></div></div>
+    <p class="ide">Ombokningen visas som ett boardingkort med stubbe, platsnummer och streckkod.</p>
+  </article>
+  <article>
+    <a class="thumb" href="04-brevet.html" target="_blank" aria-label="Öppna Brevet">
+      <iframe src="04-brevet.html" title="Brevet" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">04</span><div><h2>Brevet</h2><p class="bolag">Pappersateljén Linnea</p></div></div>
+    <p class="ide">Ett handskrivet brev: brevhuvud, monogram, bilagor, namnteckning och lacksigill.</p>
+  </article>
+  <article>
+    <a class="thumb" href="05-receptkortet.html" target="_blank" aria-label="Öppna Receptkortet">
+      <iframe src="05-receptkortet.html" title="Receptkortet" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">05</span><div><h2>Receptkortet</h2><p class="bolag">Skafferiet Delikatess</p></div></div>
+    <p class="ide">Svaret skrivs på ett linjerat receptkort med röd marginal och en inköpslista att bocka av.</p>
+  </article>
+  <article>
+    <a class="thumb" href="06-vinetiketten.html" target="_blank" aria-label="Öppna Vinetiketten">
+      <iframe src="06-vinetiketten.html" title="Vinetiketten" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">06</span><div><h2>Vinetiketten</h2><p class="bolag">Källarvalvet</p></div></div>
+    <p class="ide">Avsändaren presenteras som en vinetikett, med produkter som provningsanteckningar.</p>
+  </article>
+  <article>
+    <a class="thumb" href="07-polaroiden.html" target="_blank" aria-label="Öppna Polaroiden">
+      <iframe src="07-polaroiden.html" title="Polaroiden" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">07</span><div><h2>Polaroiden</h2><p class="bolag">Kameraverkstan</p></div></div>
+    <p class="ide">Två snett placerade polaroidbilder med handskriven bildtext.</p>
+  </article>
+  <article>
+    <a class="thumb" href="08-lokaltidningen.html" target="_blank" aria-label="Öppna Lokaltidningen">
+      <iframe src="08-lokaltidningen.html" title="Lokaltidningen" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">08</span><div><h2>Lokaltidningen</h2><p class="bolag">Ortens Tidning</p></div></div>
+    <p class="ide">Svaret som en tidningsartikel: tidningshuvud, rubrik, byline, två spalter och faktaruta.</p>
+  </article>
+  <article>
+    <a class="thumb" href="09-kartan.html" target="_blank" aria-label="Öppna Kartan">
+      <iframe src="09-kartan.html" title="Kartan" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">09</span><div><h2>Kartan</h2><p class="bolag">Leden Cykel</p></div></div>
+    <p class="ide">Toppen är en karta med höjdkurvor och en kartnål, och fakta visas som kartans teckenförklaring.</p>
+  </article>
+  <article>
+    <a class="thumb" href="10-anteckningsboken.html" target="_blank" aria-label="Öppna Anteckningsboken">
+      <iframe src="10-anteckningsboken.html" title="Anteckningsboken" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">10</span><div><h2>Anteckningsboken</h2><p class="bolag">Studio Rut</p></div></div>
+    <p class="ide">Prickat anteckningspapper, bild fäst med tejp, överstrykningspenna och en post-it-lapp.</p>
+  </article>
+  <article>
+    <a class="thumb" href="11-paketsedeln.html" target="_blank" aria-label="Öppna Paketsedeln">
+      <iframe src="11-paketsedeln.html" title="Paketsedeln" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">11</span><div><h2>Paketsedeln</h2><p class="bolag">Kustfrakt</p></div></div>
+    <p class="ide">Leveransinformationen visas som en riktig fraktsedel med rutnät, streckkod och stämpel.</p>
+  </article>
+  <article>
+    <a class="thumb" href="12-tvattlappen.html" target="_blank" aria-label="Öppna Tvättlappen">
+      <iframe src="12-tvattlappen.html" title="Tvättlappen" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">12</span><div><h2>Tvättlappen</h2><p class="bolag">Ullfabriken</p></div></div>
+    <p class="ide">Skötselråden visas som en sydd tvättlapp med tvättsymboler och storlek.</p>
+  </article>
+  <article>
+    <a class="thumb" href="13-menyn.html" target="_blank" aria-label="Öppna Menyn">
+      <iframe src="13-menyn.html" title="Menyn" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">13</span><div><h2>Menyn</h2><p class="bolag">Bistro Hamnen</p></div></div>
+    <p class="ide">Bokningen visas som ett menykort med prickade rader och kockens förslag.</p>
+  </article>
+  <article>
+    <a class="thumb" href="14-chatten.html" target="_blank" aria-label="Öppna Chatten">
+      <iframe src="14-chatten.html" title="Chatten" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">14</span><div><h2>Chatten</h2><p class="bolag">Fibernät Norr</p></div></div>
+    <p class="ide">Konversationen visas som chattbubblor, med driftstatus och förloppsindikator.</p>
+  </article>
+  <article>
+    <a class="thumb" href="15-tidslinjen.html" target="_blank" aria-label="Öppna Tidslinjen">
+      <iframe src="15-tidslinjen.html" title="Tidslinjen" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">15</span><div><h2>Tidslinjen</h2><p class="bolag">Möbelhuset Lind</p></div></div>
+    <p class="ide">Orderns status visas som en tidslinje där nästa steg pulserar.</p>
+  </article>
+  <article>
+    <a class="thumb" href="16-kalenderbladet.html" target="_blank" aria-label="Öppna Kalenderbladet">
+      <iframe src="16-kalenderbladet.html" title="Kalenderbladet" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">16</span><div><h2>Kalenderbladet</h2><p class="bolag">Salong Lugn</p></div></div>
+    <p class="ide">Den bokade tiden visas som ett avrivningsblad ur en almanacka, med ett stort datum.</p>
+  </article>
+  <article>
+    <a class="thumb" href="17-serviceintyget.html" target="_blank" aria-label="Öppna Serviceintyget">
+      <iframe src="17-serviceintyget.html" title="Serviceintyget" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">17</span><div><h2>Serviceintyget</h2><p class="bolag">Urmakeriet Söder</p></div></div>
+    <p class="ide">Ett serviceintyg med guillochemönster och ett garantisigill.</p>
+  </article>
+  <article>
+    <a class="thumb" href="18-fargkartan.html" target="_blank" aria-label="Öppna Färgkartan">
+      <iframe src="18-fargkartan.html" title="Färgkartan" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">18</span><div><h2>Färgkartan</h2><p class="bolag">Färghuset Kulör</p></div></div>
+    <p class="ide">Rekommendationerna visas som en färgkarta med NCS-koder.</p>
+  </article>
+  <article>
+    <a class="thumb" href="19-skivan.html" target="_blank" aria-label="Öppna Skivan">
+      <iframe src="19-skivan.html" title="Skivan" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">19</span><div><h2>Skivan</h2><p class="bolag">Spinn Skivbutik</p></div></div>
+    <p class="ide">En vinylskiva ritad med CSS, och produkterna listade som låtar på A- och B-sidan.</p>
+  </article>
+  <article>
+    <a class="thumb" href="20-lanekortet.html" target="_blank" aria-label="Öppna Lånekortet">
+      <iframe src="20-lanekortet.html" title="Lånekortet" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+    </a>
+    <div class="meta"><span class="nr">20</span><div><h2>Lånekortet</h2><p class="bolag">Bokhörnan</p></div></div>
+    <p class="ide">Ett lånekort i manilapapper med stämplade datum i lila bläck.</p>
+  </article>
+</main>
+</body>
+</html>
