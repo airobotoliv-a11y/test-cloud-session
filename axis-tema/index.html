@@ -34,36 +34,36 @@
   /* ---------- skärmar (fyra fält per skärm) ---------- */
   main { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; scroll-behavior: smooth; scrollbar-width: none; }
   main::-webkit-scrollbar { display: none; }
-  .skarm { height: 100vh; scroll-snap-align: start; scroll-snap-stop: always; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 3px; background: #000; padding: 3px; transition: grid-template-columns 0.9s var(--ease); }
-  .skarm.oppen { grid-template-columns: 1fr 180px; grid-template-rows: 1fr 1fr 1fr; }
-  .falt { position: relative; min-width: 0; min-height: 0; overflow: hidden; cursor: pointer; border-radius: 10px; transition: transform 0.6s var(--ease); }
-  .skarm:not(.oppen) .falt:hover { transform: scale(0.992); }
-  .skarm.oppen .falt.on { grid-column: 1; grid-row: 1 / span 3; cursor: default; }
-  .skarm.oppen .falt:not(.on) { grid-column: 2; }
+  .skarm { height: 100vh; scroll-snap-align: start; scroll-snap-stop: always; display: flex; background: #000; }
+  .falt { position: relative; flex: 1 1 0; min-width: 0; overflow: hidden; cursor: pointer; transition: flex 0.9s var(--ease); border-right: 1px solid rgba(255,255,255,0.06); }
+  .falt:last-child { border-right: 0; }
+  .skarm:not(.oppen) .falt:hover { flex: 1.18 1 0; }
+  .skarm.oppen .falt { flex: 0 0 96px; }
+  .skarm.oppen .falt.on { flex: 1 1 0; cursor: default; }
 
-  .falt video, .falt img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.06); transition: opacity 1.2s var(--ease), transform 8s var(--ease); }
+  .falt video, .falt img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.08); transition: opacity 1.2s var(--ease), transform 8s var(--ease); }
   .falt .ready { opacity: 1; transform: scale(1); }
   .falt img.ready.drift { animation: drift 30s linear infinite alternate; }
-  @keyframes drift { from { transform: scale(1.03) translate(0,0); } to { transform: scale(1.09) translate(-1.2%,-0.8%); } }
-  .falt::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.6) 100%); pointer-events: none; transition: background 0.9s; }
-  .skarm.oppen .falt:not(.on)::after { background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.25) 50%, rgba(0,0,0,0.75) 100%); }
-  .skarm.oppen .falt.on::after { background: linear-gradient(90deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.6) 100%), linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.3) 100%); }
+  @keyframes drift { from { transform: scale(1.04) translate(0,0); } to { transform: scale(1.12) translate(-1.5%,-1%); } }
+  .falt::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.62) 100%); pointer-events: none; transition: background 0.9s; }
+  .skarm.oppen .falt:not(.on)::after { background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.75) 100%); }
+  .skarm.oppen .falt.on::after { background: linear-gradient(90deg, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.05) 45%, rgba(0,0,0,0.55) 100%), linear-gradient(180deg, rgba(0,0,0,0.20) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.35) 100%); }
 
-  .etikett { position: absolute; left: 28px; right: 24px; bottom: 26px; color: var(--white); z-index: 2; transition: all 0.9s var(--ease); }
-  .etikett h2 { margin: 0; font-size: clamp(30px, 3vw, 42px); font-weight: 600; letter-spacing: -0.03em; line-height: 1; }
-  .etikett p { margin: 8px 0 0; font-size: 14px; color: rgba(255,255,255,0.82); max-width: 40ch; transition: opacity 0.5s; }
+  .etikett { position: absolute; left: 28px; right: 24px; bottom: 34px; color: var(--white); z-index: 2; transition: all 0.9s var(--ease); }
+  .etikett h2 { margin: 0; font-size: clamp(30px, 3.2vw, 44px); font-weight: 600; letter-spacing: -0.03em; line-height: 1; }
+  .etikett p { margin: 10px 0 0; font-size: 14px; color: rgba(255,255,255,0.82); max-width: 32ch; transition: opacity 0.5s; }
   .etikett .nu { display: none; align-items: center; gap: 7px; margin-top: 12px; padding: 5px 11px; border-radius: 999px; background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.25); font-size: 12px; font-weight: 600; backdrop-filter: blur(8px); }
   .etikett .nu i { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 3px rgba(34,164,93,0.3); }
   .falt.vald .etikett .nu { display: inline-flex; }
-  .skarm.oppen .falt:not(.on) .etikett { left: 14px; right: 10px; bottom: 14px; }
-  .skarm.oppen .falt:not(.on) .etikett h2 { font-size: 20px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .skarm.oppen .falt:not(.on) .etikett { left: 14px; right: 8px; bottom: 30px; }
+  .skarm.oppen .falt:not(.on) .etikett h2 { font-size: 22px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .skarm.oppen .falt:not(.on) .etikett p, .skarm.oppen .falt:not(.on) .etikett .nu { opacity: 0; height: 0; margin: 0; overflow: hidden; }
-  .skarm.oppen .falt.on .etikett { left: 56px; right: auto; bottom: auto; top: 96px; }
+  .skarm.oppen .falt.on .etikett { left: 64px; right: auto; bottom: auto; top: 110px; }
   .skarm.oppen .falt.on .etikett h2 { font-size: clamp(56px, 6vw, 92px); }
   .skarm.oppen .falt.on .etikett p, .skarm.oppen .falt.on .etikett .nu { opacity: 0; height: 0; margin: 0; overflow: hidden; }
 
   /* ---------- panelen ---------- */
-  .kort { position: absolute; top: 50%; right: 40px; width: 500px; max-height: calc(100vh - 80px); overflow-y: auto; scrollbar-width: none; transform: translate(40px, -50%); opacity: 0; pointer-events: none; z-index: 3; color: var(--white); transition: all 0.9s var(--ease) 0.25s; }
+  .kort { position: absolute; top: 50%; right: 56px; width: 520px; max-height: calc(100vh - 80px); overflow-y: auto; scrollbar-width: none; transform: translate(40px, -50%); opacity: 0; pointer-events: none; z-index: 3; color: var(--white); transition: all 0.9s var(--ease) 0.25s; }
   .kort::-webkit-scrollbar { display: none; }
   .falt.on .kort { transform: translate(0, -50%); opacity: 1; pointer-events: auto; }
   .kort .lbl { font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: rgba(255,255,255,0.7); margin: 0 0 10px; }
@@ -116,13 +116,13 @@
   .btn.prim:hover { background: #F1F2F4; }
   .actions { display: flex; gap: 8px; }
 
-  .topp { position: fixed; top: 22px; left: 248px; right: 0; padding: 0 72px 0 32px; display: flex; justify-content: space-between; align-items: center; color: rgba(255,255,255,0.85); font-size: 12.5px; z-index: 5; pointer-events: none; text-shadow: 0 1px 8px rgba(0,0,0,0.5); }
+  .topp { position: fixed; top: 22px; left: 248px; right: 0; padding: 0 64px 0 28px; display: flex; justify-content: space-between; align-items: center; color: rgba(255,255,255,0.85); font-size: 12.5px; z-index: 5; pointer-events: none; text-shadow: 0 1px 8px rgba(0,0,0,0.5); }
   .topp b { color: #fff; font-weight: 600; }
   .rals { position: fixed; right: 18px; top: 50%; transform: translateY(-50%); z-index: 5; display: flex; flex-direction: column; gap: 8px; }
   .rals a { width: 26px; height: 22px; display: grid; place-items: center; text-decoration: none; }
   .rals a i { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.45); transition: all 0.4s var(--ease); }
   .rals a.on i { height: 20px; border-radius: 3px; background: #fff; }
-  .hint { position: fixed; top: 22px; left: calc(248px + 50%); transform: translateX(-50%); color: rgba(255,255,255,0.75); font-size: 12px; display: flex; gap: 8px; align-items: center; z-index: 5; transition: opacity 0.6s; text-shadow: 0 1px 6px rgba(0,0,0,0.6); }
+  .hint { position: fixed; bottom: 22px; left: calc(248px + 50%); transform: translateX(-50%); color: rgba(255,255,255,0.75); font-size: 12px; display: flex; gap: 8px; align-items: center; z-index: 5; transition: opacity 0.6s; text-shadow: 0 1px 6px rgba(0,0,0,0.6); }
   .hint i { width: 18px; height: 28px; border: 1.5px solid rgba(255,255,255,0.6); border-radius: 10px; position: relative; }
   .hint i::after { content: ""; position: absolute; left: 50%; top: 5px; width: 3px; height: 6px; margin-left: -1.5px; border-radius: 2px; background: #fff; animation: hjul 1.6s infinite; }
   @keyframes hjul { 0% { transform: translateY(0); opacity: 1; } 70% { transform: translateY(10px); opacity: 0; } 100% { opacity: 0; } }
@@ -159,7 +159,7 @@
   </div>
 </aside>
 
-<div class="topp"><span>Tema · <b id="topp-namn">Analogt och hantverk</b></span><span><button class="kopiera" id="kopiera">Kopiera klipplista</button> &nbsp;&nbsp; <b id="topp-nr">1</b> / 3</span></div>
+<div class="topp"><span>Tema · <b id="topp-namn">Analogt och hantverk</b></span><span><button class="kopiera" id="kopiera">Kopiera klipplista</button> &nbsp; <b id="topp-nr">1</b> / 3</span></div>
 <main id="main"></main>
 <nav class="rals" id="rals" aria-label="Skärmar"></nav>
 <div class="hint" id="hint"><i></i>Skrolla för fler teman</div>
